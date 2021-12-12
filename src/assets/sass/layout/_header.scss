@@ -1,0 +1,11 @@
+h1.ui.header {
+  @include font($size: 3.5rem, $family: $fontMonserrat, $weight: 900);
+}
+
+.header-main {
+  background-color: rgb(213, 195, 214);
+}
+
+.logo {
+  width: 10%;
+}

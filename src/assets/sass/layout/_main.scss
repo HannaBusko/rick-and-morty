@@ -1,0 +1,21 @@
+#root{
+  min-height: 100vh;
+}
+.container-main{
+    background-color: rgb(62, 57, 63);
+}
+
+.checkbox-list{
+    display: flex;
+    flex-direction: column;
+    color: white;
+   &>.checkbox-item{
+     padding: 5px;  
+   } 
+
+   .ui.checkbox label, .ui.checkbox+label, .ui.checkbox label:hover, .ui.checkbox+label:hover, .ui.checkbox input:focus~label {
+    color: white;  
+    text-align: left;
+}
+}
+

@@ -1,14 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
+import { HashRouter } from "react-router-dom";
+
+import Preloader from "./components/Preloader";
+
+import "./index.css";
+
+import reportWebVitals from "./reportWebVitals";
+
+const Layout = React.lazy(() => import("./components/Layout"));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <HashRouter>
+    <Suspense fallback={<Preloader />}>
+      <React.StrictMode>
+        <Layout />
+      </React.StrictMode>
+    </Suspense>
+  </HashRouter>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
