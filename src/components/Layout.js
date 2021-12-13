@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Preloader from "./Preloader";
 import HeaderWithLogo from "./Header";
 import ListCards from "./ListCards";
 import FilterBlock from "./FilterBlock";

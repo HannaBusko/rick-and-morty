@@ -5,9 +5,6 @@ import { Grid, Input, Checkbox } from "semantic-ui-react";
 const FilterBlock = (props) => {
   const { searchQuery, searchItems, genderArray, changeGender } = props;
 
- /* const isCheckedValue = (value) =>
-    genderArray.some((elem) => elem.toLowerCase() === value);*/
-
   const changeCheckbox = (e, target) => {
     const newGenderArray = target.checked
       ? [...genderArray].concat([target.value])

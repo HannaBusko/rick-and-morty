@@ -1,8 +1,7 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
 
-const FigureCard = (character) => {
+const FigureCard = (character:any) => {
     const { image, id, name, status, gender } = character;
     const navigate = useNavigate();
 

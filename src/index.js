@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
-import Preloader from "./components/Preloader";
+import Preloader from "./components/Preloader.tsx";
 
 import "./index.css";
 

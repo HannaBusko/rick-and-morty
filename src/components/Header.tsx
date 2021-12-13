@@ -1,8 +1,7 @@
-import React from "react";
 import { Header, Segment, Grid, Image, Breadcrumb } from "semantic-ui-react";
 import logo from "../assets/images/logo.svg";
 
-const HeaderWithLogo = ({breadcrumbSection}) => (
+const HeaderWithLogo = ({breadcrumbSection}:any) => (
   <>
     <Grid columns={2} textAlign="center" verticalAlign="middle" className="header-main" padded>
       <Grid.Row>
