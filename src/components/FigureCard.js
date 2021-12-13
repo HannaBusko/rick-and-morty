@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
 
 const FigureCard = (character) => {
-    const { image, name, status, gender } = character;
+    const { image, id, name, status, gender } = character;
     const navigate = useNavigate();
 
     const navToCardDetails=()=>{
-      navigate("/Character");
+      navigate("/Character/"+id);
     };
 
     return (

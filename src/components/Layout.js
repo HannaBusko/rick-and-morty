@@ -44,7 +44,7 @@ const Layout = () => {
       <HeaderWithLogo breadcrumbSection="Characters" />
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route path="/Character" element={<Preloader />} />
+        <Route path="/Character/:id" element={<CardDetails />} />
       </Routes>
     </>
   );
