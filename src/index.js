@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import Preloader from "./components/Preloader";
 
@@ -11,13 +11,13 @@ import reportWebVitals from "./reportWebVitals";
 const Layout = React.lazy(() => import("./components/Layout"));
 
 ReactDOM.render(
-  <HashRouter>
+  <BrowserRouter>
     <Suspense fallback={<Preloader />}>
       <React.StrictMode>
         <Layout />
       </React.StrictMode>
     </Suspense>
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

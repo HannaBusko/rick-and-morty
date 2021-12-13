@@ -21,7 +21,7 @@ const HeaderWithLogo = ({breadcrumbSection}) => (
         </Grid.Column>
       </Grid.Row>
     </Grid>
-    <Segment vertical padded='very'>
+    <Segment vertical padded='very' className="header-title">
       <Header
         as="h1"
         content="Rick and Morty"

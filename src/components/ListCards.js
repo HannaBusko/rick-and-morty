@@ -1,41 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Message, Card, Image } from "semantic-ui-react";
+import {Card } from "semantic-ui-react";
 import Preloader from "./Preloader";
+import ErrorMessage from "./ServiceComponents";
+import FigureCard from "./FigureCard";
 
-const ErrorMessage = (message) => (
-  <Message negative>
-    <Message.Header>Sorry</Message.Header>
-    <p>{message}</p>
-  </Message>
-);
 
-const FigureCard = (character) => {
-  const { image, name, status, gender } = character;
-  return (
-    <Card fluid={false}>
-      <Image src={image} wrapped ui={false} size="medium" />
-      <Card.Content>
-        <Card.Header>{name}</Card.Header>
-        <Card.Meta>
-          <span>{status}</span>
-        </Card.Meta>
-        <Card.Description>{gender}</Card.Description>
-      </Card.Content>
-    </Card>
-  );
-};
-/*characters.map((character) => {
-          if (
-            (!searchQuery && genderArray.some((elem) => elem.toLowerCase() === "any")) ||
-            character.name
-              ?.toLowerCase()
-              .includes(searchQuery?.toLowerCase())
-          ) {
-            return <FigureCard key={character.id} {...character} />;
-          } else {
-            return <></>;
-          }
-        })*/
 const ListCards = (props) => {
   const { searchQuery, genderArray } = props;
   const [error, setError] = useState(null);

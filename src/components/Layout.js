@@ -1,21 +1,15 @@
 import React, { useState } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Preloader from "./Preloader";
 import HeaderWithLogo from "./Header";
 import ListCards from "./ListCards";
 import FilterBlock from "./FilterBlock";
+import CardDetails from "./CardDetails";
 
 import { Grid } from "semantic-ui-react";
 
-const RoutesWrapper = () => (
-  <Routes>
-    <Route exact path="/" element={<Preloader />} />
-    <Route path="*" element={<Navigate to="/products" />} />
-  </Routes>
-);
-
-const Layout = () => {
+const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [genderArray, setSelectedGender] = useState(["any"]);
 
@@ -27,18 +21,33 @@ const Layout = () => {
     setSelectedGender(selectedGender);
   };
 
-  return(
-  <>
-    <HeaderWithLogo breadcrumbSection="Characters" />
+  return (
     <Grid stackable columns={2} className="container-main">
-      <Grid.Column width={4} >
-        <FilterBlock searchQuery={searchQuery} searchItems={searchItems} genderArray={genderArray} changeGender={selectGender}/>
+      <Grid.Column width={4}>
+        <FilterBlock
+          searchQuery={searchQuery}
+          searchItems={searchItems}
+          genderArray={genderArray}
+          changeGender={selectGender}
+        />
       </Grid.Column>
       <Grid.Column width={12}>
-        <ListCards searchQuery={searchQuery} genderArray={genderArray}/>
+        <ListCards searchQuery={searchQuery} genderArray={genderArray} />
       </Grid.Column>
     </Grid>
-  </>
-)};
+  );
+};
+
+const Layout = () => {
+  return (
+    <>
+      <HeaderWithLogo breadcrumbSection="Characters" />
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route path="/Character" element={<Preloader />} />
+      </Routes>
+    </>
+  );
+};
 
 export default Layout;
