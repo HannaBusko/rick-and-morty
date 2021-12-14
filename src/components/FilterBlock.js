@@ -2,22 +2,27 @@ import { Grid, Input, Checkbox } from "semantic-ui-react";
 
 const genderCheckbox = [
   {
+    id: 0,
     label: "Any gender",
     value: "any"
   },
   {
+    id: 1,
     label: "Male",
     value: "male"
   },
   {
+    id: 2,
     label: "Female",
     value: "female"
   },
   {
+    id: 3,
     label: "Genderless",
     value: "genderless"
   },
   {
+    id: 4,
     label: "Unknown",
     value: "unknown"
   }];
@@ -48,6 +53,7 @@ const FilterBlock = (props) => {
           <label>Gender</label>
           {
             genderCheckbox.map((data)=> <Checkbox
+            key={data.id}
             className="checkbox-item"
             label={data.label}
             value={data.value}
