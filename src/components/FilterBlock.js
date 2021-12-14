@@ -1,6 +1,27 @@
-import React from "react";
-
 import { Grid, Input, Checkbox } from "semantic-ui-react";
+
+const genderCheckbox = [
+  {
+    label: "Any gender",
+    value: "any"
+  },
+  {
+    label: "Male",
+    value: "male"
+  },
+  {
+    label: "Female",
+    value: "female"
+  },
+  {
+    label: "Genderless",
+    value: "genderless"
+  },
+  {
+    label: "Unknown",
+    value: "unknown"
+  }];
+
 
 const FilterBlock = (props) => {
   const { searchQuery, searchItems, genderArray, changeGender } = props;
@@ -25,41 +46,15 @@ const FilterBlock = (props) => {
       <Grid.Row centered>
         <div className="checkbox-list">
           <label>Gender</label>
-          <Checkbox
+          {
+            genderCheckbox.map((data)=> <Checkbox
             className="checkbox-item"
-            label="Any gender"
-            value={"any"}
-            checked={genderArray.includes("any")}
+            label={data.label}
+            value={data.value}
+            checked={genderArray.includes(data.value)}
             onChange={changeCheckbox}
-          />
-          <Checkbox
-            className="checkbox-item"
-            label="Male"
-            value={"male"}
-            checked={genderArray.includes("male")}
-            onChange={changeCheckbox}
-          />
-          <Checkbox
-            className="checkbox-item"
-            label="Female"
-            value={"female"}
-            checked={genderArray.includes("female")}
-            onChange={changeCheckbox}
-          />
-          <Checkbox
-            className="checkbox-item"
-            label="Genderless"
-            value={"genderless"}
-            checked={genderArray.includes("genderless")}
-            onChange={changeCheckbox}
-          />
-          <Checkbox
-            className="checkbox-item"
-            label="Unknown"
-            value={"unknown"}
-            checked={genderArray.includes("unknown")}
-            onChange={changeCheckbox}
-          />
+          />)
+          }
         </div>
       </Grid.Row>
     </Grid>
