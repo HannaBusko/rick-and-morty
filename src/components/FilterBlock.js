@@ -28,8 +28,7 @@ const genderCheckbox = [
   }];
 
 
-const FilterBlock = (props) => {
-  const { searchQuery, searchItems, genderArray, changeGender } = props;
+const FilterBlock = ({searchQuery, searchItems, genderArray, changeGender }) => {
 
   const changeCheckbox = (e, target) => {
     const newGenderArray = target.checked

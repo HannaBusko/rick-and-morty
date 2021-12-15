@@ -4,8 +4,7 @@ import { Card } from "semantic-ui-react";
 import FigureCard from "./FigureCard";
 import UploadData from "./UploadData";
 
-const ListCards = (props) => {
-  const { searchQuery, genderArray } = props;
+const ListCards = ({searchQuery, genderArray }) => {
   const [characters, setCharacters] = useState([]);
 
   return (
