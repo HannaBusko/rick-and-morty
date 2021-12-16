@@ -11,7 +11,7 @@ const CardDetails = () => {
 
     return (
       <>
-      <UploadData setDataFromAPI={setCharacter} id={id}/>
+      <UploadData setDataFromAPI={setCharacter} additionalUrlPart ="character/" id={id}/>
       { !character.error &&  <Card fluid={false}>
         <Image src={character.image} wrapped ui={false} size="medium" />
         <Card.Content>
