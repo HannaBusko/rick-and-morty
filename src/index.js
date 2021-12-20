@@ -8,7 +8,7 @@ import "./index.css";
 
 import reportWebVitals from "./reportWebVitals";
 
-const Layout = React.lazy(() => import("./components/Layout"));
+const Layout = React.lazy(() => import("./components/Layout.tsx"));
 
 ReactDOM.render(
   <BrowserRouter>

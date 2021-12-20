@@ -4,19 +4,24 @@ import { Card } from "semantic-ui-react";
 import FigureCard from "./FigureCard";
 import UploadData from "./UploadData";
 
-const ListCards = ({ searchQuery, genderArray }) => {
+interface ListCardsProps {
+  searchQuery: string;
+  genderArray: Array<string>;
+}
+
+const ListCards = ({ searchQuery, genderArray }:ListCardsProps) => {
   const [characters, setCharacters] = useState([]);
 
-  const filterCharactersArray = (characters) =>
-    characters.filter((elem) => {
+  const filterCharactersArray = (characters:Array<Object>) =>
+    characters.filter((elem:any) => {
       return genderArray.includes("any") ||
         genderArray.includes(elem.gender?.toLowerCase())
         ? true
         : false;
     });
 
-  const addCard = (data) =>
-    data.map((character) => {
+  const addCard = (data:Array<Object>) =>
+    data.map((character:any) => {
       return !searchQuery ||
         character.name?.toLowerCase().includes(searchQuery?.toLowerCase()) ? (
         <FigureCard key={character.id} {...character} />
@@ -27,7 +32,7 @@ const ListCards = ({ searchQuery, genderArray }) => {
 
   return (
     <Card.Group centered>
-      <UploadData setDataFromAPI={setCharacters} additionalUrlPart ="character/"/>
+      <UploadData setDataFromAPI={setCharacters} additionalUrlPart ="character/" id=""/>
       {characters && genderArray.length ? (
         addCard(filterCharactersArray(characters))
       ) : (

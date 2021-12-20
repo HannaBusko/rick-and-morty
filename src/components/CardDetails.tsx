@@ -4,14 +4,20 @@ import { useParams } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
 
 import UploadData from "./UploadData";
+import { URL_ADDITIONAL_CHARACTER } from "./constants";
+
+interface CharacterType {
+  [key: string]: any
+};
 
 const CardDetails = () => {
   const { id } = useParams();
-  const [character, setCharacter] = useState({});
+
+  const [character, setCharacter] = useState<CharacterType>({});
 
     return (
       <>
-      <UploadData setDataFromAPI={setCharacter} additionalUrlPart ="character/" id={id}/>
+      <UploadData setDataFromAPI={setCharacter} additionalUrlPart = {URL_ADDITIONAL_CHARACTER} id={id}/>
       { !character.error &&  <Card fluid={false}>
         <Image src={character.image} wrapped ui={false} size="medium" />
         <Card.Content>

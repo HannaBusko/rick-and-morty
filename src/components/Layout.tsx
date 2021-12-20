@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import HomePage from "./HomePage.tsx";
+import HomePage from "./HomePage";
 import HeaderWithLogo from "./Header";
 import CardDetails from "./CardDetails";
 
@@ -10,7 +10,7 @@ const Layout = () => {
     <>
       <HeaderWithLogo breadcrumbSection="Characters" />
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/Character/:id" element={<CardDetails />} />
       </Routes>
     </>

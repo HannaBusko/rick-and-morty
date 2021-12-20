@@ -1,4 +1,4 @@
-import { Grid, Input, Checkbox } from "semantic-ui-react";
+import { Grid, Input, Checkbox, CheckboxProps } from "semantic-ui-react";
 
 const GENDER_CHECKBOX = [
   {
@@ -27,10 +27,17 @@ const GENDER_CHECKBOX = [
     value: "unknown"
   }];
 
+  interface FilterProps {
+    searchQuery: string;
+    searchItems: (arg0: string) => void;
+    genderArray: Array<any>;
+    changeGender: (arg0: Array<string>) => void;
+  };
 
-const FilterBlock = ({searchQuery, searchItems, genderArray, changeGender }) => {
+const FilterBlock = ({searchQuery, searchItems, genderArray, changeGender }:FilterProps) => {
 
-  const changeCheckbox = (e, target) => {
+  const changeCheckbox = (e: any, target: { checked: boolean; value: string}|CheckboxProps) => {
+
     const newGenderArray = target.checked
       ? [...genderArray].concat([target.value])
       : [...genderArray].filter((elem) => elem.toLowerCase() !== target.value);
