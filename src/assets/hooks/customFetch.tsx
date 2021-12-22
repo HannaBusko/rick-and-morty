@@ -1,32 +1,22 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-  const useFetch = (url: string) => {
+import fetchThis from "../service/rest";
 
-  const [status, setStatus] = useState<any>({
-    loading: false,
-    data: undefined,
-    error: undefined
-  });
+const useFetch = (url: string) => {
 
-  function fetchNow(url: string) {
-    setStatus({ loading: true });
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        setStatus({ loading: false, data: res?.results ? res.results : res });
-      })
-      .catch((error) => {
-        setStatus({ loading: false, error });
-      });
-  }
-
+    const [status, setStatus] = useState<any>({
+      loading: false,
+      data: undefined,
+      error: undefined
+    });
+ 
   useEffect(() => {
     if (url) {
-      fetchNow(url);
+      fetchThis(url, setStatus);
     }
   }, [url]);
 
-  return { ...status, fetchNow };
+  return { ...status};
 }
 
-export default useFetch
+export default useFetch;
