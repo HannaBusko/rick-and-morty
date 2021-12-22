@@ -1,5 +1,7 @@
 import { Grid, Input, Checkbox, CheckboxProps } from "semantic-ui-react";
 
+import { search_input_placeholder, gender_checkbox_label } from "../assets/service/locale";
+
 const GENDER_CHECKBOX = [
   {
     id: 0,
@@ -51,12 +53,12 @@ const FilterBlock = ({searchQuery, searchItems, genderArray, changeGender }:Filt
           icon="search"
           onChange={(e) => searchItems(e.target.value)}
           value={searchQuery}
-          placeholder="Character's name"
+          placeholder={search_input_placeholder}
         />
       </Grid.Row>
       <Grid.Row centered>
         <div className="checkbox-list">
-          <label>Gender</label>
+          <label>{gender_checkbox_label}</label>
           {
             GENDER_CHECKBOX.map((data)=> <Checkbox
             key={data.id}

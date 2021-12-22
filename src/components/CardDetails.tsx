@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
 
 import UploadData from "./UploadData";
-import { URL_ADDITIONAL_CHARACTER } from "./constants";
+import { URL_ADDITIONAL_CHARACTER } from "../assets/service/constants";
 
 interface CharacterType {
   [key: string]: any

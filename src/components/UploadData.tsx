@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
-
 import Preloader from "./Preloader";
+import useFetch from "../assets/hooks/customFetch";
+
 import { Message } from "semantic-ui-react";
 
-import { URL_COMMON } from "./constants";
+import { URL_COMMON } from "../assets/service/constants";
+import { error_title } from "../assets/service/locale";
+
 
 interface UploadDataProps {
   setDataFromAPI: any;
@@ -16,36 +18,26 @@ const UploadData = ({
   additionalUrlPart,
   id = "",
 }: UploadDataProps) => {
-  const [error, setError] = useState({ message: null });
-  const [isLoaded, setIsLoaded] = useState(false);
+
   const url = URL_COMMON + additionalUrlPart + id;
 
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then(
-        (data) => {
-          setIsLoaded(true);
-          setDataFromAPI(id ? data : data.results);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, [id, setDataFromAPI, url]);
+  const { data, loading, error } = useFetch(url);
 
-  if (!isLoaded) {
+  if (loading) {
     return <Preloader />;
   }
 
   if (error?.message) {
     return (
       <Message negative>
-        <Message.Header>Sorry</Message.Header>
+        <Message.Header>{error_title}</Message.Header>
         <p>{error.message}</p>
       </Message>
     );
+  }
+
+  if(data){
+    setDataFromAPI(data);
   }
   return <></>;
 };

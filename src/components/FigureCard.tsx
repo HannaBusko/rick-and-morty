@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
 
+import { URL_NAVIGATE_CHARACTER } from "../assets/service/constants";
 interface FigureCardProps {
   image: any;
   id: string;
@@ -13,7 +14,7 @@ const FigureCard = ({ image, id, name, status, gender }: FigureCardProps) => {
   const navigate = useNavigate();
 
   const navToCardDetails = () => {
-    navigate("/Character/" + id);
+    navigate( URL_NAVIGATE_CHARACTER + id);
   };
 
   return (
