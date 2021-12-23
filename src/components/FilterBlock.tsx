@@ -2,32 +2,7 @@ import { Grid, Input, Checkbox, CheckboxProps } from "semantic-ui-react";
 
 import { search_input_placeholder, gender_checkbox_label } from "../assets/service/locale";
 
-const GENDER_CHECKBOX = [
-  {
-    id: 0,
-    label: "Any gender",
-    value: "any"
-  },
-  {
-    id: 1,
-    label: "Male",
-    value: "male"
-  },
-  {
-    id: 2,
-    label: "Female",
-    value: "female"
-  },
-  {
-    id: 3,
-    label: "Genderless",
-    value: "genderless"
-  },
-  {
-    id: 4,
-    label: "Unknown",
-    value: "unknown"
-  }];
+import { GENDER_CHECKBOX } from "../assets/service/constants";
 
   interface FilterProps {
     searchQuery: string;

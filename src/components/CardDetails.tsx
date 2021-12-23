@@ -6,6 +6,8 @@ import { Card, Image } from "semantic-ui-react";
 import UploadData from "./UploadData";
 import { URL_ADDITIONAL_CHARACTER } from "../assets/service/constants";
 
+import { origin_name_label, location_name_label} from "../assets/service/locale";
+
 interface CharacterType {
   [key: string]: any
 };
@@ -25,7 +27,12 @@ const CardDetails = () => {
           <Card.Meta>
             <span>{character.status}</span>
           </Card.Meta>
-          <Card.Description>{character.gender}</Card.Description>
+          <Card.Description><p>{character.gender}</p>
+          <p>{character.species}</p>
+          {character.type &&<p>{character.type}</p>}
+          <p><span>{origin_name_label}: </span>{character.origin?.name}</p>
+          </Card.Description>
+          <Card.Content extra><span>{location_name_label}: </span> {character.location?.name}</Card.Content>
         </Card.Content>
       </Card>
       }    
