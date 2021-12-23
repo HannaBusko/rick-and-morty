@@ -1,16 +1,12 @@
-
-
-  const fetchThis = (url: string, setStatus:any) =>{
-    setStatus({ loading: true });
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        setStatus({ loading: false, data: res?.results ? res.results : res });
-      })
-      .catch((error) => {
-        setStatus({ loading: false, error });
-      });
+const fetchThis = async (url: string, setStatus: any) => {
+  setStatus({ loading: true });
+  let response = await fetch(url);
+  let res = await response.json();
+  if (response.ok) {  
+    setStatus({ loading: false, data: res?.results ? res.results : res });
+  } else {
+    setStatus({ loading: false, error: res });
   }
+};
 
-
-  export default fetchThis;
+export default fetchThis;

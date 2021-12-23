@@ -21,17 +21,17 @@ const UploadData = ({
 
   const url = URL_COMMON + additionalUrlPart + id;
 
-  const { data, loading, error } = useFetch(url);
+  const { data, loading, error} = useFetch(url);
 
   if (loading) {
     return <Preloader />;
   }
 
-  if (error?.message) {
+  if (error) {
     return (
       <Message negative>
         <Message.Header>{error_title}</Message.Header>
-        <p>{error.message}</p>
+        <p>{error.error}</p>
       </Message>
     );
   }

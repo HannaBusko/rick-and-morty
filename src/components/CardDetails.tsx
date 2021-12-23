@@ -18,7 +18,7 @@ const CardDetails = () => {
     return (
       <>
       <UploadData setDataFromAPI={setCharacter} additionalUrlPart = {URL_ADDITIONAL_CHARACTER} id={id}/>
-      { !character.error &&  <Card fluid={false}>
+      { Object.keys(character).length !== 0 && !character.error &&  <Card fluid={false}>
         <Image src={character.image} wrapped ui={false} size="medium" />
         <Card.Content>
           <Card.Header>{character.name}</Card.Header>

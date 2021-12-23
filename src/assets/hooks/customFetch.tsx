@@ -7,7 +7,7 @@ const useFetch = (url: string) => {
     const [status, setStatus] = useState<any>({
       loading: false,
       data: undefined,
-      error: undefined
+      error: undefined    
     });
  
   useEffect(() => {
