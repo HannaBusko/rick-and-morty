@@ -3,7 +3,7 @@ import { Card, Image } from "semantic-ui-react";
 
 import { URL_NAVIGATE_CHARACTER } from "../assets/service/constants";
 interface FigureCardProps {
-  image: any;
+  image: string ;
   id: string;
   name: string;
   status: string;

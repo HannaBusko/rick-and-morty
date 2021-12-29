@@ -13,9 +13,9 @@ interface ListCardsProps {
 const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
   const [characters, setCharacters] = useState([]);
 
-  const filtering =  (characters: Array<Object>)=>{
+  const filtering = (characters: Array<Object>) => {
     let newArray = filterCharactersGender(characters);
-    if(searchQuery){
+    if (searchQuery) {
       newArray = filterCharactersSearch(newArray);
     }
     return newArray;
@@ -23,30 +23,25 @@ const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
 
   const filterCharactersGender = (characters: Array<Object>) =>
     characters.filter((elem: any) => {
-      return genderArray.includes("any") ||
+      return (
+        genderArray.includes("any") ||
         genderArray.includes(elem.gender?.toLowerCase())
-        ? true
-        : false;
+      );
     });
 
   const filterCharactersSearch = (characters: Array<Object>) =>
     characters.filter((elem: any) => {
       let suit = false;
-       SEARCH_PROPERTIES.forEach((property) => {
-         let character= property.additional ? elem[property.title][property.additional] : elem[property.title];
-        if (character?.toLowerCase().includes(searchQuery?.toLowerCase()))
-        {
-          suit=true;
+      SEARCH_PROPERTIES.forEach((property) => {
+        let character = property.additional
+          ? elem[property.title][property.additional]
+          : elem[property.title];
+        if (character?.toLowerCase().includes(searchQuery?.toLowerCase())) {
+          suit = true;
           return;
         }
       });
       return suit;
-    });
-
-  const addCard = (data: Array<Object>) =>
-    data.map((character: any) => {
-      return <FigureCard key={character.id} {...character} />
-      
     });
 
   return (
@@ -56,11 +51,11 @@ const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
         additionalUrlPart="character/"
         id=""
       />
-      {characters && genderArray.length ? (
-        addCard(filtering(characters))
-      ) : (
-        <></>
-      )}
+      {characters &&
+        genderArray.length &&
+        filtering(characters).map((character: any) => (
+          <FigureCard key={character.id} {...character} />
+        ))}
     </Card.Group>
   );
 };

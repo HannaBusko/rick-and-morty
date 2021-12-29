@@ -3,19 +3,20 @@ import { Grid, Input, Checkbox, CheckboxProps } from "semantic-ui-react";
 import { search_input_placeholder, gender_checkbox_label } from "../assets/service/locale";
 
 import { GENDER_CHECKBOX } from "../assets/service/constants";
+import { FormEvent } from "react";
 
   interface FilterProps {
     searchQuery: string;
-    searchItems: (arg0: string) => void;
-    genderArray: Array<any>;
-    changeGender: (arg0: Array<string>) => void;
+    searchItems: (query: string) => void;
+    genderArray: Array<string>;
+    changeGender: (genderArray: Array<string>) => void;
   };
 
 const FilterBlock = ({searchQuery, searchItems, genderArray, changeGender }:FilterProps) => {
 
-  const changeCheckbox = (e: any, target: { checked: boolean; value: string}|CheckboxProps) => {
+  const changeCheckbox = (e: FormEvent<HTMLInputElement>, target:CheckboxProps) => {
 
-    const newGenderArray = target.checked
+    const newGenderArray = target.checked && typeof target.value === 'string'
       ? [...genderArray].concat([target.value])
       : [...genderArray].filter((elem) => elem.toLowerCase() !== target.value);
     changeGender(newGenderArray);
