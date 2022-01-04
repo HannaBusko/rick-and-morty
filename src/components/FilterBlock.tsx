@@ -5,14 +5,14 @@ import { search_input_placeholder, gender_checkbox_label } from "../assets/servi
 import { GENDER_CHECKBOX } from "../assets/service/constants";
 import { FormEvent } from "react";
 
-  interface FilterProps {
+  interface QueryProps {
     searchQuery: string;
     searchItems: (query: string) => void;
     genderArray: Array<string>;
     changeGender: (genderArray: Array<string>) => void;
   };
 
-const FilterBlock = ({searchQuery, searchItems, genderArray, changeGender }:FilterProps) => {
+const FilterBlock = ({searchQuery, searchItems, genderArray, changeGender }:QueryProps) => {
 
   const changeCheckbox = (e: FormEvent<HTMLInputElement>, target:CheckboxProps) => {
 

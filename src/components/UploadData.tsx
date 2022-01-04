@@ -10,7 +10,7 @@ import { error_title } from "../assets/service/locale";
 interface UploadDataProps {
   setDataFromAPI: (data: any) => void;
   additionalUrlPart: string;
-  id: string | undefined;
+  id?: string ;
 }
 
 const UploadData = ({

@@ -8,14 +8,25 @@ import { URL_ADDITIONAL_CHARACTER } from "../assets/service/constants";
 
 import { origin_name_label, location_name_label} from "../assets/service/locale";
 
-interface CharacterType {
-  [key: string]: any
+interface ILocationType{
+  name:string;
+}
+interface ICharacterType {
+  error?:string;
+  image?:string;
+  name?:string;
+  status?:string;
+  gender?:string;
+  species?:string;
+  type?:string;
+  origin?:ILocationType;
+  location?:ILocationType;
 };
 
 const CardDetails = () => {
   const { id } = useParams();
 
-  const [character, setCharacter] = useState<CharacterType>({});
+  const [character, setCharacter] = useState<ICharacterType>({});
 
     return (
       <>

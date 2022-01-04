@@ -9,11 +9,14 @@ interface ListCardsProps {
   searchQuery: string;
   genderArray: Array<string>;
 }
+interface FilterCharactersProps{
+  characters: Array<Object>;
+}
 
 const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
   const [characters, setCharacters] = useState([]);
 
-  const filtering = (characters: Array<Object>) => {
+  const filtering = (characters: FilterCharactersProps[]) => {
     let newArray = filterCharactersGender(characters);
     if (searchQuery) {
       newArray = filterCharactersSearch(newArray);
@@ -21,7 +24,7 @@ const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
     return newArray;
   };
 
-  const filterCharactersGender = (characters: Array<Object>) =>
+  const filterCharactersGender = (characters: FilterCharactersProps[]) =>
     characters.filter((elem: any) => {
       return (
         genderArray.includes("any") ||
@@ -29,7 +32,7 @@ const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
       );
     });
 
-  const filterCharactersSearch = (characters: Array<Object>) =>
+  const filterCharactersSearch = (characters: FilterCharactersProps[]) =>
     characters.filter((elem: any) => {
       let suit = false;
       SEARCH_PROPERTIES.forEach((property) => {
