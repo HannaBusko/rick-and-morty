@@ -1,10 +1,10 @@
 import Preloader from "./Preloader";
-import useFetch from "../assets/hooks/customFetch";
+import useFetch from "../../assets/hooks/customFetch";
 
 import { Message } from "semantic-ui-react";
 
-import { URL_COMMON } from "../assets/service/constants";
-import { error_title } from "../assets/service/locale";
+import { URL_COMMON } from "../../assets/service/constants";
+import { error_title } from "../../assets/service/locale";
 
 
 interface UploadDataProps {

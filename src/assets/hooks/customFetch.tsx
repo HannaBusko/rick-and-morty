@@ -1,16 +1,7 @@
 import { useEffect, useState } from "react";
 
 import fetchThis from "../service/rest";
-
-interface IErrorObject {
-  error?: string;
-};
-
-interface IStatus {
-  loading: boolean;
-  data?: Object;
-  error?: IErrorObject;
-};
+import IStatus from "../types/data.type";
 
 const useFetch = (url: string) => {
 

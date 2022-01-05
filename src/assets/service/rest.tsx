@@ -1,4 +1,6 @@
-const fetchThis = async (url: string, setStatus: any) => {
+import IStatus from "../types/data.type";
+
+const fetchThis = async (url: string, setStatus: (data: IStatus) => void) => {
   setStatus({ loading: true });
   let response = await fetch(url);
   let res = await response.json();

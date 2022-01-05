@@ -2,15 +2,18 @@ import { useState } from "react";
 import { Card } from "semantic-ui-react";
 
 import FigureCard from "./FigureCard";
-import UploadData from "./UploadData";
+import UploadData from "./general/UploadData";
 
 import { SEARCH_PROPERTIES } from "../assets/service/constants";
+import CharacterType from "../assets/types/character.type";
+
 interface ListCardsProps {
   searchQuery: string;
   genderArray: Array<string>;
 }
+
 interface FilterCharactersProps{
-  characters: Array<Object>;
+  characters: Array<CharacterType>;
 }
 
 const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {

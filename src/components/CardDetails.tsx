@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { Card, Image } from "semantic-ui-react";
 
-import UploadData from "./UploadData";
+import UploadData from "./general/UploadData";
 import { URL_ADDITIONAL_CHARACTER } from "../assets/service/constants";
 
 import { origin_name_label, location_name_label} from "../assets/service/locale";
