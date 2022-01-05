@@ -13,7 +13,7 @@ const useFetch = (url: string) => {
  
   useEffect(() => {
     if (url) {
-      fetchThis(url, setStatus);
+      fetchThis({url, setStatus});
     }
   }, [url]);
 

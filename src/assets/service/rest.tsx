@@ -1,6 +1,9 @@
 import IStatus from "../types/data.type";
+interface FetchProps{
+  url: string; setStatus: (data: IStatus) => void;
+}
 
-const fetchThis = async (url: string, setStatus: (data: IStatus) => void) => {
+const fetchThis = async ({url, setStatus}:FetchProps) => {
   setStatus({ loading: true });
   let response = await fetch(url);
   let res = await response.json();
