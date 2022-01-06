@@ -18,7 +18,7 @@ interface ICharacterError{
  error:string
 }
 
-type ICharacterType = ICharacterError|ICharacter;
+type ICharacterType = ICharacterError&ICharacter;
   export interface ICharacter{
     id:number;
     name:string;

@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
 
 import { URL_NAVIGATE_CHARACTER } from "../assets/service/constants";
-import CharacterType from "../assets/types/character.type";
 
-const FigureCard = ({ image, id, name, status, gender }: CharacterType) => {
+import {ICharacterType}  from "../assets/types/data.type";
+
+const FigureCard = ({ image, id, name, status, gender }: ICharacterType) => {
   const navigate = useNavigate();
 
   const navToCardDetails = () => {

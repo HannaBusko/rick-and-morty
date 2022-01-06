@@ -15,7 +15,7 @@ import {ICharacterType} from "../assets/types/data.type";
 const CardDetails = () => {
   const { id } = useParams();
 
-  const [character, setCharacter] = useState<ICharacterType>(null);
+  const [character, setCharacter] = useState<ICharacterType>({});
 
     return (
       <>
