@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 
 import fetchThis from "../service/rest";
-import IStatus from "../types/data.type";
+import {ICharacterType, IErrorObject} from "../types/data.type";
 
 const useFetch = (url: string) => {
 
-    const [status, setStatus] = useState<IStatus>({
-      loading: false,
-      data: undefined,
-      error: undefined    
-    });
+    const [loading, setLoading] = useState(false);
+
+    const [data, setData] = useState<ICharacterType[]&ICharacterType>();
+
+    const [error, setError] = useState<IErrorObject>({});
  
   useEffect(() => {
     if (url) {
-      fetchThis({url, setStatus});
+      fetchThis({url, setLoading, setData, setError });
     }
   }, [url]);
 
-  return { ...status};
+  return {loading, data, error };
 }
 
 export default useFetch;

@@ -1,16 +1,21 @@
-import IStatus from "../types/data.type";
+import {ICharacterType, IErrorObject}  from "../types/data.type";
 interface FetchProps{
-  url: string; setStatus: (data: IStatus) => void;
+  url: string; 
+  setLoading: (loading: boolean) => void;
+  setData:(data: ICharacterType[]&ICharacterType) => void
+  setError:(error: IErrorObject) => void;
 }
 
-const fetchThis = async ({url, setStatus}:FetchProps) => {
-  setStatus({ loading: true });
+const fetchThis = async ({url, setLoading, setData, setError }:FetchProps) => {
+  setLoading(true);
   let response = await fetch(url);
   let res = await response.json();
   if (response.ok) {
-    setStatus({ loading: false, data: res?.results ? res.results : res });
+    setLoading(false);
+    setData(res?.results ? res.results : res);
   } else {
-    setStatus({ loading: false, error: res });
+    setLoading(false);
+    setError({error: res });
   }
 };
 

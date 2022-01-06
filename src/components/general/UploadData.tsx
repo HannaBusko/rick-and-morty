@@ -6,9 +6,10 @@ import { Message } from "semantic-ui-react";
 import { URL_COMMON } from "../../assets/service/constants";
 import { error_title } from "../../assets/service/locale";
 
+import {ICharacterType}  from "../../assets/types/data.type";
 
 interface UploadDataProps {
-  setDataFromAPI: (data: any) => void;
+  setDataFromAPI: (data: ICharacterType[]&ICharacterType) => void;
   additionalUrlPart: string;
   id?: string ;
 }

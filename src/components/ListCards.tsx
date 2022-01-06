@@ -5,21 +5,18 @@ import FigureCard from "./FigureCard";
 import UploadData from "./general/UploadData";
 
 import { SEARCH_PROPERTIES } from "../assets/service/constants";
-import CharacterType from "../assets/types/character.type";
+
+import {ICharacterType} from "../assets/types/data.type";
 
 interface ListCardsProps {
   searchQuery: string;
   genderArray: Array<string>;
 }
 
-interface FilterCharactersProps{
-  characters: Array<CharacterType>;
-}
-
 const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<ICharacterType[]>([]);
 
-  const filtering = (characters: FilterCharactersProps[]) => {
+  const filtering = (characters: ICharacterType[]) => {
     let newArray = filterCharactersGender(characters);
     if (searchQuery) {
       newArray = filterCharactersSearch(newArray);
@@ -27,7 +24,7 @@ const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
     return newArray;
   };
 
-  const filterCharactersGender = (characters: FilterCharactersProps[]) =>
+  const filterCharactersGender = (characters: ICharacterType[]) =>
     characters.filter((elem: any) => {
       return (
         genderArray.includes("any") ||
@@ -35,7 +32,7 @@ const ListCards = ({ searchQuery, genderArray }: ListCardsProps) => {
       );
     });
 
-  const filterCharactersSearch = (characters: FilterCharactersProps[]) =>
+  const filterCharactersSearch = (characters: ICharacterType[]) =>
     characters.filter((elem: any) => {
       let suit = false;
       SEARCH_PROPERTIES.forEach((property) => {
