@@ -37,7 +37,7 @@ const UploadData = ({
   }
 
   const childrenWithExtraProp = Children.map(children, (child) => {
-    return cloneElement(child as React.ReactElement<any>, { data: data });
+    return cloneElement(child, { data: data });
   });
   return <>{childrenWithExtraProp}</>;
 };
