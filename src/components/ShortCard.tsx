@@ -3,9 +3,9 @@ import { Card, Image } from "semantic-ui-react";
 
 import { URL_NAVIGATE_CHARACTER } from "../assets/service/constants";
 
-import {ICharacterType}  from "../assets/types/data.type";
+import {ICharacter}  from "../assets/types/data.type";
 
-const FigureCard = ({ image, id, name, status, gender }: ICharacterType) => {
+const ShortCard = ({ image, id, name, status, gender }: ICharacter) => {
   const navigate = useNavigate();
 
   const navToCardDetails = () => {
@@ -26,4 +26,4 @@ const FigureCard = ({ image, id, name, status, gender }: ICharacterType) => {
   );
 };
 
-export default FigureCard;
+export default ShortCard;

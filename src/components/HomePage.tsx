@@ -1,5 +1,5 @@
 import { SetStateAction, useState } from "react";
-import ListCards from "./ListCards";
+import ListCardsWrapper from "./ListCardsWrapper";
 import FilterBlock from "./FilterBlock";
 
 import { Grid } from "semantic-ui-react";
@@ -27,7 +27,7 @@ const HomePage = () => {
           />
         </Grid.Column>
         <Grid.Column width={12}>
-          <ListCards searchQuery={searchQuery} genderArray={genderArray} />
+          <ListCardsWrapper searchQuery={searchQuery} genderArray={genderArray} />
         </Grid.Column>
       </Grid>
     );

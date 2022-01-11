@@ -1,3 +1,5 @@
+import { Children, cloneElement } from "react";
+
 import Preloader from "./Preloader";
 import useFetch from "../../assets/hooks/customFetch";
 
@@ -6,23 +8,20 @@ import { Message } from "semantic-ui-react";
 import { URL_COMMON } from "../../assets/service/constants";
 import { error_title } from "../../assets/service/locale";
 
-import {ICharacterType}  from "../../assets/types/data.type";
-
 interface UploadDataProps {
-  setDataFromAPI: (data: ICharacterType[]&ICharacterType) => void;
+  children: JSX.Element;
   additionalUrlPart: string;
-  id?: string ;
+  id?: string;
 }
 
 const UploadData = ({
-  setDataFromAPI,
+  children,
   additionalUrlPart,
   id = "",
 }: UploadDataProps) => {
-
   const url = URL_COMMON + additionalUrlPart + id;
 
-  const { data, loading, error} = useFetch(url);
+  const { data, loading, error } = useFetch(url);
 
   if (loading) {
     return <Preloader />;
@@ -37,10 +36,10 @@ const UploadData = ({
     );
   }
 
-  if(data){
-    setDataFromAPI(data);
-  }
-  return <></>;
+  const childrenWithExtraProp = Children.map(children, (child) => {
+    return cloneElement(child as React.ReactElement<any>, { data: data });
+  });
+  return <>{childrenWithExtraProp}</>;
 };
 
 export default UploadData;

@@ -1,8 +1,8 @@
-import {ICharacterType, IErrorObject}  from "../types/data.type";
+import {ICharacter, IErrorObject}  from "../types/data.type";
 interface FetchProps{
   url: string; 
   setLoading: (loading: boolean) => void;
-  setData:(data: ICharacterType[]&ICharacterType) => void
+  setData:(data: ICharacter[]&ICharacter) => void
   setError:(error: IErrorObject) => void;
 }
 
@@ -15,7 +15,7 @@ const fetchThis = async ({url, setLoading, setData, setError }:FetchProps) => {
     setData(res?.results ? res.results : res);
   } else {
     setLoading(false);
-    setError({error: res });
+    setError(res);
   }
 };
 
